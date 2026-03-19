@@ -1,0 +1,511 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@200;400;600&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Eliminado el bloque vacío de #ubicacion que daba error */
+
+:root {
+    --gold: #c5a059;
+    --dark: #0f0f0f;
+    --white: #ffffff;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+body {
+    margin: 0;
+    background-color: var(--dark);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* --- FOOTER --- */
+footer {
+    padding: 30px 10%;
+    background-color: #050505;
+    text-align: center;
+    border-top: 1px solid rgba(197, 160, 89, 0.1);
+}
+
+footer p {
+    color: var(--gold);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    padding-bottom: 8px;
+    font-weight: 400;
+}
+
+/* --- NAVEGACIÓN --- */
+header {
+    padding: 1.5rem 10%;
+    background: rgba(15, 15, 15, 0.95);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+    color: var(--white);
+}
+
+.logo span { color: var(--gold); }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding: 5px 0;
+    transition: 0.3s;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--gold);
+    transition: 0.3s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+
+/* --- HERO SECTION --- */
+.hero {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), 
+                url('https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2070') no-repeat center/cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.9) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.subtitle {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 0.9rem;
+}
+
+.hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 4rem;
+    margin: 20px 0;
+}
+
+.gold-line {
+    width: 60px;
+    border: 1px solid var(--gold);
+    margin: 20px auto;
+}
+
+.btn-main {
+    margin-top: 30px;
+    display: inline-block;
+    padding: 15px 45px;
+    background: var(--gold);
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.4s;
+}
+
+.btn-main:hover {
+    background: transparent;
+    color: var(--gold);
+    box-shadow: inset 0 0 0 1px var(--gold);
+}
+
+/* --- FORMULARIO Y MODAL --- */
+.luxury-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.form-full {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.luxury-form input, 
+.luxury-form textarea {
+    width: 100%;
+    background: transparent !important;
+    border: none;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.4);
+    color: white;
+    padding: 12px 0;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.luxury-form input:focus, 
+.luxury-form textarea:focus {
+    outline: none;
+    border-bottom: 1px solid var(--gold);
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0; width: 100%; height: 100%;
+    backdrop-filter: blur(15px);
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.modal-content {
+    background-color: #0f0f0f;
+    margin: 5% auto;
+    padding: 50px;
+    border: 1px solid var(--gold);
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 0 50px rgba(197, 160, 89, 0.2);
+}
+
+.close-btn {
+    position: absolute;
+    right: 25px; top: 15px;
+    color: var(--gold);
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 15px 60px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.btn-outline:hover {
+    background: var(--gold);
+    color: #000;
+}
+
+/* --- UBICACIÓN Y MAPA --- */
+.maps-section {
+    padding: 50px 5%;
+    text-align: center !important;
+    background-color: #050505;
+}
+
+#ubicacion {
+    scroll-margin-top: 100px; /* Margen para que el header no tape el título al bajar */
+}
+
+.maps-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Dos columnas: dirección (izquierda) y mapa (derecha) */
+    gap: 50px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.location-info {
+    text-align: left; /* Dirección alineada a la izquierda en PC */
+}
+
+.address {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 30px 0;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.map-link {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+
+.map-link:hover { opacity: 0.7; }
+
+.map-container {
+    height: 450px;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    padding: 15px;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+}
+
+.map-container iframe {
+    filter: none !important; 
+    width: 100%;
+    height: 100%;
+}
+
+/* --- SERVICIOS --- */
+.services-section {
+    padding: 120px 10%;
+    background-color: #0f0f0f;
+    text-align: center;
+}
+
+.services-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    letter-spacing: 3px;
+}
+
+.services-grid {
+    display: flex;           /* Activamos el modo Flexbox */
+    flex-direction: row;  /* Ponemos las tarjetas una al lado de otra */
+    align-items: center;     /* <--- ESTA ES LA CLAVE: Centra los hijos horizontalmente */
+    flex-wrap: wrap;
+    gap: 20px;               /* Espacio entre tarjetas */
+    width: 100%;             /* Que el contenedor ocupe todo el ancho */
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 50px 30px;
+    border: 1px solid rgba(197, 160, 89, 0.1);
+    transition: 0.5s ease;
+    position: relative;
+    flex: 1 1 200px;
+    max-width: 350px;
+}
+
+.service-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-10px);
+    background: rgba(197, 160, 89, 0.03);
+}
+
+.service-icon {
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    font-size: 0.85rem;
+    color: #999;
+    line-height: 1.8;
+}
+
+/* Estilo para el teléfono en la sección de contacto */
+.phone-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+.phone-link:hover {
+    color: var(--gold); /* Cambia a dorado al pasar el ratón */
+}
+
+/* Ajuste opcional para móviles para que sea más fácil de pulsar */
+@media (max-width: 768px) {
+    .phone-link {
+        font-size: 1.2rem;
+        padding: 10px 0;
+    }
+}
+
+
+/* --- RESPONSIVE: COMPACTADO TOTAL MÓVIL --- */
+@media (max-width: 768px) {
+    
+    /* --- CABECERA Y PORTADA (HERO) GIGANTE --- */
+    header {
+    padding: 1rem 2% !important; /* Reducimos márgenes laterales al mínimo */
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+header nav {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+.nav-links {
+    display: flex !important;
+    flex-direction: row !important; /* Los mantenemos en fila pero con control */
+    justify-content: center !important;
+    gap: 1rem !important; /* Espacio justo para que quepan los tres */
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+.nav-links li {
+    display: inline-block !important;
+}
+
+.nav-links a {
+    font-size: 0.65rem !important; /* Letra pequeña para que entren todos */
+    letter-spacing: 1px !important;
+    white-space: nowrap !important; /* Evita que las palabras se partan en dos líneas */
+}
+
+.logo {
+    font-size: 1rem !important;
+    margin-bottom: 5px !important;
+}
+    .hero {
+        height: 50vh !important; /* Reducimos la altura a la mitad de la pantalla */
+        min-height: 350px; /* Aseguramos un mínimo para que no se corte el texto */
+    }
+
+    .hero-content {
+        padding: 0 5% !important;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem !important; /* Título más contenido */
+        margin: 10px 0 !important;
+        line-height: 1.2;
+    }
+
+    .subtitle {
+        font-size: 0.7rem !important;
+        letter-spacing: 3px !important;
+    }
+
+    .gold-line {
+        margin: 15px auto !important;
+    }
+
+    /* Reducimos el botón principal para que no sea un bloque enorme */
+    .btn-main {
+        padding: 12px 30px !important;
+        font-size: 0.8rem !important;
+        margin-top: 20px !important;
+        width: auto !important; /* Que no ocupe todo el ancho */
+    }
+
+    /* --- FORMULARIO (MODAL) GIGANTE --- */
+    .modal-content {
+        width: 90% !important; /* Ocupa casi todo el ancho lateral */
+        max-width: 400px; /* Pero no más de 400px */
+        margin: 15% auto !important; /* Lo subimos un poco */
+        padding: 30px 20px !important; /* Reducimos aire interno */
+        border: 1px solid var(--gold); /* Mantenemos el borde elegante */
+    }
+
+    .modal-title {
+        font-size: 1.3rem !important;
+        margin-bottom: 25px !important;
+        text-align: center;
+    }
+
+    .luxury-form {
+        gap: 15px !important; /* Estrecha el espacio entre campos */
+    }
+
+    .luxury-form input, 
+    .luxury-form select, 
+    .luxury-form textarea {
+        padding: 8px 0 !important;
+        font-size: 0.75rem !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* Centramos y ajustamos el botón de enviar del modal */
+    .form-footer {
+        margin-top: 15px !important;
+        text-align: center;
+    }
+
+    .form-footer .btn-main {
+        width: 100% !important; /* Aquí sí, que ocupe todo el ancho del formulario */
+        padding: 12px !important;
+        font-size: 0.8rem !important;
+    }
+
+    /* UBICACIÓN: MAPA DEBAJO Y CENTRADO */
+    .maps-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .location-info {
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .map-container {
+        width: 100% !important;
+        max-width: 320px !important;
+        height: 240px !important;
+        margin: 20px auto 0 !important;
+        padding: 10px !important;
+        box-sizing: border-box !important;
+    }
+}

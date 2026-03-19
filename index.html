@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Host & Clean Sevilla | Premium Property Care</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">HOST & CLEAN <span>SEVILLA</span></div>
+        <ul class="nav-links">
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="javascript:void(0)" onclick="openModal()">Contacto</a></li> 
+            <li><a href="#ubicacion">Ubicación</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <span class="subtitle">Premium Property Care</span>
+        <h1>Excelencia en cada detalle</h1>
+        <div class="gold-line"></div>
+        <p>Servicios de limpieza de alta gama para apartamentos turísticos exclusivos.</p>
+        <a href="javascript:void(0)" class="btn-main" onclick="openModal()">Solicitar Presupuesto</a>
+    </div>
+</section>
+
+<section id="servicios" class="services-section">
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">✦</div>
+            <h3>Limpieza Check-in</h3>
+            <p>Protocolos de desinfección rigurosos y presentación de lujo.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">✦</div>
+            <h3>Gestión de Lencería</h3>
+            <p>Ropa de cama y toallas de alta calidad con planchado impecable.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">✦</div>
+            <h3>Mantenimiento Premium</h3>
+            <p>Resolución inmediata de incidencias técnicas 24/7.</p>
+        </div>
+    </div>
+</section>
+
+<section id="ubicacion" class="maps-section">
+    <div class="maps-wrapper">
+        <div class="location-info">
+            <h2>Contacto</h2>
+            <p class="address">C/ Martín Ruiz, 86<br>41900 Camas, Sevilla<br>
+            <a href="Tel. +34600000000" class="phone-link">+34 600 000 000</a></p>
+            <a href="https://goo.gl/maps/..." target="_blank" class="map-link">Abrir en Google Maps</a><br>
+        </div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+
+<div id="modalContacto" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">×</span>
+        
+        <div class="form-header">
+            <h2 class="modal-title">Contacto</h2>
+            <div class="gold-line" style="margin: 10px 0 30px 0;"></div>
+        </div>
+
+        <form class="luxury-form">
+            <div class="form-row">
+                <input type="text" placeholder="NOMBRE COMPLETO" required>
+                <input type="email" placeholder="CORREO ELECTRÓNICO" required>
+            </div>
+            
+            <div class="form-full">
+                <input type="text" placeholder="ASUNTO" required>
+            </div>
+            
+            <div class="form-full">
+                <textarea placeholder="MENSAJE" rows="4" required></textarea>
+            </div>
+            
+            <div class="form-footer">
+                <button type="submit" class="btn-main" style="width: 100%;">Enviar Solicitud</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<footer>
+    <p>© 2026 Host & Clean Sevilla | Gestión de Propiedades de Lujo</p>
+</footer>
+
+<script>
+    function openModal() { document.getElementById("modalContacto").style.display = "block"; }
+    function closeModal() { document.getElementById("modalContacto").style.display = "none"; }
+    window.onclick = function(e) { if(e.target == document.getElementById("modalContacto")) closeModal(); }
+</script>
+</body>
+</html>
