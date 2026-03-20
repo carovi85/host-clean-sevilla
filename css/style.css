@@ -330,6 +330,8 @@ header {
     max-width: 350px;
     display: flex;
     flex-direction: column;
+    /* --- AÑADE ESTO: SOMBRA DORADA SUAVE --- */
+        box-shadow: 0 10px 30px rgba(197, 160, 89, 0.15) !important;
 }
 
 .service-card:hover {
@@ -370,55 +372,56 @@ header {
     color: var(--gold); /* Cambia a dorado al pasar el ratón */
 }
 
-/* Ajuste opcional para móviles para que sea más fácil de pulsar */
+/* ===========================================
+   RESPONSIVE: DISEÑO UNIFICADO MÓVIL 
+   =========================================== */
 @media (max-width: 768px) {
+    /* 1. TELÉFONO Y ENLACES */
     .phone-link {
-        font-size: 1.2rem;
-        padding: 10px 0;
+        font-size: 1.2rem !important;
+        padding: 10px 0 !important;
+        display: block !important;
     }
-}
 
 
-/* --- RESPONSIVE: COMPACTADO TOTAL MÓVIL --- */
-@media (max-width: 768px) {
-    
-    /* --- CABECERA Y PORTADA (HERO) GIGANTE --- */
+
+    /* 2. CABECERA (LOGO Y MENÚ) */
     header {
     padding: 1rem 2% !important; /* Reducimos márgenes laterales al mínimo */
     flex-direction: column !important;
     gap: 10px !important;
-}
+    }
 
-header nav {
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-}
+    header nav {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
 
-.nav-links {
-    display: flex !important;
-    flex-direction: row !important; /* Los mantenemos en fila pero con control */
-    justify-content: center !important;
-    gap: 1rem !important; /* Espacio justo para que quepan los tres */
-    padding: 0 !important;
-    width: 100% !important;
-}
+    .nav-links {
+        display: flex !important;
+        flex-direction: row !important; /* Los mantenemos en fila pero con control */
+        justify-content: center !important;
+        gap: 1rem !important; /* Espacio justo para que quepan los tres */
+        padding: 0 !important;
+        width: 100% !important;
+    }
 
-.nav-links li {
-    display: inline-block !important;
-}
+    .nav-links li {
+        display: inline-block !important;
+    }
 
-.nav-links a {
-    font-size: 0.65rem !important; /* Letra pequeña para que entren todos */
-    letter-spacing: 1px !important;
-    white-space: nowrap !important; /* Evita que las palabras se partan en dos líneas */
-}
+    .nav-links a {
+        font-size: 0.65rem !important; /* Letra pequeña para que entren todos */
+        letter-spacing: 1px !important;
+        white-space: nowrap !important; /* Evita que las palabras se partan en dos líneas */
+    }
 
-.logo {
-    font-size: 1rem !important;
-    margin-bottom: 5px !important;
-}
+    .logo {
+        font-size: 1rem !important;
+        margin-bottom: 5px !important;
+    }
     .hero {
         height: 50vh !important; /* Reducimos la altura a la mitad de la pantalla */
         min-height: 350px; /* Aseguramos un mínimo para que no se corte el texto */
@@ -488,6 +491,17 @@ header nav {
         width: 100% !important; /* Aquí sí, que ocupe todo el ancho del formulario */
         padding: 12px !important;
         font-size: 0.8rem !important;
+    }
+
+    /* --- NUEVO: BORDE MÁS FUERTE EN MÓVIL --- */
+    .service-card {
+        border: 1px solid rgba(197, 160, 89, 0.8) !important; /* Pasamos de 0.1 a 0.8 de opacidad */
+        background: rgba(255, 255, 255, 0.05) !important; /* Un fondo un pelín más claro para que resalte */
+        width: 100% !important;
+        max-width: 300px !important;
+        margin: 0 auto !important;
+        /* --- AÑADE ESTO: SOMBRA DORADA SUAVE --- */
+        box-shadow: 0 10px 30px rgba(197, 160, 89, 0.15) !important;
     }
 
     /* UBICACIÓN: MAPA DEBAJO Y CENTRADO */
