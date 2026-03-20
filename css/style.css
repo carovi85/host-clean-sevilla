@@ -100,7 +100,7 @@ header {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), 
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), 
                 url('https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2070') no-repeat center/cover;
 }
 
@@ -127,6 +127,7 @@ header {
     font-family: 'Cinzel', serif;
     font-size: 4rem;
     margin: 20px 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* <--- Sombra negra suave detrás de la letra */
 }
 
 .gold-line {
@@ -312,8 +313,9 @@ header {
 .services-grid {
     display: flex;           /* Activamos el modo Flexbox */
     flex-direction: row;  /* Ponemos las tarjetas una al lado de otra */
-    align-items: center;     /* <--- ESTA ES LA CLAVE: Centra los hijos horizontalmente */
+    align-items: stretch;
     flex-wrap: wrap;
+    justify-content: center; /*mantener el grupo centrado en la plantilla*/
     gap: 20px;               /* Espacio entre tarjetas */
     width: 100%;             /* Que el contenedor ocupe todo el ancho */
 }
@@ -326,6 +328,8 @@ header {
     position: relative;
     flex: 1 1 200px;
     max-width: 350px;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-card:hover {
